@@ -15,6 +15,8 @@ spring:
         output:
           binder: kafka
           destination: test
+          # Using Apache Avro with Schema Registry
+          # contentType: application/*+avro
           contentType: application/json
           # Consumer (input) and producer (output) are Spring Cloud Stream applications :)
           headerMode: embeddedHeaders
@@ -25,6 +27,7 @@ spring:
           zkNodes: "kafka:2181"
           brokers: "kafka:9092,kafka:9093,kafka:9094"
           autoCreateTopics: true
+      schemaRegistryClient: "http://localhost:8888/schema-registry/"
 
 # Health indicator for binders.
 management:
