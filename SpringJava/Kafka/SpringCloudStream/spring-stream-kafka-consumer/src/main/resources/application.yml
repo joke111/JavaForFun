@@ -68,7 +68,10 @@ spring:
           # Zookeeper (I think, it is not required in Kafka v0.10.1.1
           zkNodes: "kafka:2181"
           
-          offsetUpdateTimeWindow: 3000
+          # I THINK THIS CONFIGURATION IS WORTHLESS... IT IS NEVER USED...
+          # see: https://github.com/spring-cloud/spring-cloud-stream-binder-kafka/commit/8362cc35691ff64ce5ad401f43ca141910255b76
+          # JUST IN CASE I AM GOING TO SKIP IT, JUST IN CASE THERE COULD BE SOME CONFLICT WITH autoCommitOnError :/
+          offsetUpdateTimeWindow: 0
           
           # This means the leader will wait for the full set of in-sync replicas to acknowledge the record. This guarantees that
           # the record will not be lost as long as at least one in-sync replica remains alive. This is the strongest available guarantee.
